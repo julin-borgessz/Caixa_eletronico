@@ -1,0 +1,27 @@
+name: Teste do Caixa Eletrônico
+
+# Define quando a Action vai rodar (ao fazer push ou pull request na branch main)
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Máquina virtual Linux que vai rodar o código
+
+    steps:
+    # 1. Baixa o código do seu repositório para a máquina virtual
+    - name: Baixar o repositório
+      uses: actions/checkout@v3
+
+    # 2. Compila o código C usando o GCC
+    - name: Compilar o programa
+      run: gcc caixa.c -o caixa
+
+    # 3. Testa o programa passando entradas automáticas
+    - name: Executar teste automático
+      # O comando echo envia as opções "1" (ver saldo), "2" e "50" (sacar 50), e "3" (sair)
+      run: |
+        echo -e "1\n2\n50\n3\n" | ./caixa
