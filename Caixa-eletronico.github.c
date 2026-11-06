@@ -23,7 +23,7 @@ int main() {
                 printf("\nDigite o valor do saque (apenas multiplos de 5): R$ ");
                 scanf("%d", &valorsaque);
 
-                // Validações do saque
+                // ValidaÃ§Ãµes do saque
                 if (valorsaque <= 0) {
                     printf("Erro: Valor invalido.\n");
                 } else if (valorsaque % 5 != 0) {
@@ -35,7 +35,7 @@ int main() {
                     saldo -= valorsaque;
                     valorrestante = valorsaque;
 
-                    // Cálculo da quantidade de cada nota
+                    // CÃ¡lculo da quantidade de cada nota
                     n100 = valorrestante / 100;
                     valorrestante %= 100;
 
@@ -51,7 +51,7 @@ int main() {
                     n5 = valorrestante / 5;
                     valorrestante %= 5;
 
-                    // Exibição do resultado
+                    // ExibiÃ§Ã£o do resultado
                     printf("\nSaque de R$ %d realizado com sucesso!\n", valorsaque);
                     printf("Notas entregues:\n");
                     if (n100 > 0) printf("%d nota(s) de R$ 100\n", n100);
